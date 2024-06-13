@@ -8,6 +8,7 @@ import {
   faDollarSign,
   faRightFromBracket,
   faRightToBracket,
+  faTachometerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import fetchUserSession from "@/app/lib/helpers/SessionData";
 import Link from "next/link";
@@ -129,7 +130,7 @@ const HeaderMenu: React.FC<HeaderProps> = async ({ metadata }) => {
           </div>
           <div className="flex items-center me-5">
             <a
-              href="#"
+              href="http://localhost:3000/Sellers/Vendas"
               className="hover:animate-pulse cursor-pointer hover:text-yellow-500 transition ease-in-out duration-1000 flex items-center"
             >
               {" "}
@@ -138,6 +139,19 @@ const HeaderMenu: React.FC<HeaderProps> = async ({ metadata }) => {
                 className="mx-2 h-5 ext-yellow-500"
               />
               Vendas
+            </a>
+          </div>
+          <div className="flex items-center me-5">
+            <a
+              href="http://localhost:3000/Sellers/Dashboard"
+              className="hover:animate-pulse cursor-pointer hover:text-yellow-500 transition ease-in-out duration-1000 flex items-center"
+            >
+              {" "}
+              <FontAwesomeIcon
+                icon={faTachometerAlt}
+                className="mx-2 h-5 ext-yellow-500"
+              />
+              Dashboard
             </a>
           </div>
 
