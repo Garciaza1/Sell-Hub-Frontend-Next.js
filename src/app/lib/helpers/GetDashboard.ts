@@ -11,7 +11,7 @@ export const getDataVendedorPorDia = async (
         `http://localhost:5000/Dashboard/Vendedor/PorDia/${id}`
       );
       if (response.data) {
-        console.log(JSON.stringify(response.data))
+        console.log(response.data)
         return response.data;
       }
       return null;
@@ -37,23 +37,6 @@ export const getDataVendedorPorDia = async (
       return null;
     }
   };
-
-//   export const getDataVendedorDoDiaQntXvalor = async (
-//     id: string | string[] | undefined
-//   ): Promise<Data | null> => {
-//     try {
-//       const response = await axios.get(
-//         `http://localhost:5000/Dashboard/Vendedor/DoDia/${id}`
-//       );
-//       if (response.data) {
-//         return response.data;
-//       }
-//       return null;
-//     } catch (error) {
-//       console.error("Erro ao buscar os dados do vendedor do dia:", error);
-//       return null;
-//     }
-//   };
   
   export const getDataCliente = async (
     id: string | string[] | undefined

@@ -27,6 +27,9 @@ interface SaleData {
   venda_data: string;
   total_vendas: number;
   quantidade: number;
+  mtd_pay: string;
+  cep: string;
+  sts_venda: string;
 }
 
 interface DoDiaProps {
@@ -71,6 +74,7 @@ const DoDiaVendedor: React.FC<DoDiaProps> = ({ salesData }) => {
         },
       },
       y: {
+        suggestedMax: 15,
         display: true,
         title: {
           display: true,

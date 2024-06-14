@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import {
   getDataVendedorPorDia,
@@ -7,7 +6,9 @@ import {
 } from "../../lib/helpers/GetDashboard";
 import DoDiaVendedor from "../Dashboard/VendedorDoDia";
 import PorDiaVendedor from "../Dashboard/VendedorPorDia";
-import QntdXvalor from "../Dashboard/VendedorQntXValor";
+import MtdPayVendedor from "../Dashboard/mtdPayVendedor";
+import VendasStatusPieChart from "../Dashboard/PieConfirmed";
+import VendasMap from "../Dashboard/VendaMap";
 
 interface DashboardProps {
   user_id: string | undefined;
@@ -42,13 +43,13 @@ const Dashboard: React.FC<DashboardProps> = ({ user_id }) => {
   }, [user_id]);
 
   //checagem de vendas
-  if (vendasDoDia) {
-    console.log(vendasDoDia);
-  }
+  // if (vendasDoDia) {
+  //   console.log(vendasDoDia);
+  // }
 
-  if (vendasPorDia != null) {
-    console.log(vendasPorDia);
-  }
+  // if (vendasPorDia != null) {
+  //   console.log(vendasPorDia);
+  // }
 
   return (
     <div className="container bg-gray-500 rounded-xl">
@@ -72,11 +73,11 @@ const Dashboard: React.FC<DashboardProps> = ({ user_id }) => {
 
       <hr className="mx-20" />
 
-      <section className="flex justify-center text-center bg-red-100 m-20 text-black rounded-3xl ">
-        <div className="w-5/12 p-5">
-          <div className="font-bold text-xl">Vendas Dia a Dia:</div>
-          <QntdXvalor salesData={vendasPorDia} />
+      <section className="flex justify-start text-center bg-red-100 m-20 text-black rounded-3xl ">
+      <div className="w-5/12 p-5">
+          <VendasMap salesData={vendasDoDia} />
         </div>
+
       </section>
 
       <hr className="mx-20" />
@@ -84,14 +85,14 @@ const Dashboard: React.FC<DashboardProps> = ({ user_id }) => {
       <section className="flex justify-between text-center bg-cyan-100 m-20 text-black rounded-3xl ">
         <div className="w-5/12 p-5">
           <div className="font-bold text-xl">Vendas Dia a Dia:</div>
-          <DoDiaVendedor salesData={vendasDoDia} />
+          <VendasStatusPieChart salesData={vendasDoDia} />
         </div>
 
         <div className="h-96 border-2 border-sky-300 my-20 w-px"></div>
 
         <div className="w-5/12 p-5">
-          <div className="font-bold text-xl">Vendas Por Dia:</div>
-          <PorDiaVendedor salesData={vendasPorDia} />
+          <div className="font-bold text-xl">Método de Pagamento:</div>
+          <MtdPayVendedor salesData={vendasDoDia} />
         </div>
       </section>
     </div>
